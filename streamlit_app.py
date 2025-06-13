@@ -44,5 +44,5 @@ if st.session_state.selected_combos:
 
     if len(st.session_state.selected_combos) == total_possible:
         st.balloons()
-        st.success("🎉 Congratulations! You found all 25 meal combos! 🎉")
+        st.success("🎉 Congratulations! You found all 6 meal combos! 🎉")
 
