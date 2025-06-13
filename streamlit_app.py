@@ -37,12 +37,11 @@ if st.button("Add Combo"):
         st.session_state.selected_combos.append(combo)
         st.success(f"Added combo: {selected_main} + {selected_dessert}")
 
-if st.session_state.selected_combos:
-    st.header("Selected Combos:")
-    for i, (m, d) in enumerate(st.session_state.selected_combos, 1):
-        st.write(f"{i}. {m} + {d}")
+        # Check if completed all combos just now
+        if len(st.session_state.selected_combos) == total_possible:
+            st.session_state.celebrated = True
 
-    if len(st.session_state.selected_combos) == total_possible:
-        st.balloons()
-        st.success("🎉 Congratulations! You found all 6 meal combos! 🎉")
-
+# Show celebration only once
+if st.session_state.get("celebrated", False):
+    st.balloons()
+    st.success("🎉 Congratulations! You found all 6 meal combos! 🎉")
